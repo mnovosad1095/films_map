@@ -86,18 +86,19 @@ years = file_data['year']
 locations_data = file_data['location']
 locations.close()
 
-
-map = folium.Map()
+map = folium.Map(zoom_start=3, location=[34.0536834, -118.2427669])
 locs = folium.FeatureGroup(name='Locations')
 rich_locs = folium.FeatureGroup(name="Richest locations")
 
 year = take_input()
 locs_dict = create_dict(years, locations_data, names_data, year)
 
+colors = ['brown', 'orange', 'purple', 'pink', 'blue',]
+
 for i in locs_dict.keys():
     locs.add_child(folium.Marker(location=locs_dict[i][0],
                                  popup=create_popup(locs_dict[i]),
-                                 icon=folium.Icon()
+                                 icon=folium.Icon(color=random.choice(colors))
                                  ))
     rich_locs.add_child(folium.CircleMarker(radius=5,
                                             location=locs_dict[i][0],
