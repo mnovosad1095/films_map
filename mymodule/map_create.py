@@ -10,6 +10,10 @@ geocode = RateLimiter(geolocator.geocode, min_delay_seconds=2)
 
 
 def take_input():
+    """
+    Takes input from user and returns specified year
+    :return:
+    """
     while True:
         year = input('Please enter your year: ')
         try:
@@ -63,6 +67,9 @@ def create_dict(years_data, locs, names, year):
 
 
 def create_popup(dictionary_i):
+    """
+    Choose name to give, if dict has more, than one item
+    """
     name = ''
     name += random.choice(dictionary_i[1:])
     if len(dictionary_i)-2 > 0:
@@ -71,6 +78,9 @@ def create_popup(dictionary_i):
 
 
 def pick_color(quantity):
+    """
+    chooses the color for circle marker
+    """
     if quantity >= 20:
         return 'red'
     elif quantity >= 5:
