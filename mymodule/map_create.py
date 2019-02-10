@@ -96,7 +96,7 @@ years = file_data['year']
 locations_data = file_data['location']
 locations.close()
 
-map = folium.Map(zoom_start=3, location=[34.0536834, -118.2427669])
+map = folium.Map(zoom_start=3, location=[34.0536834, -118.2427669], tiles='Stamen Toner')
 locs = folium.FeatureGroup(name='Locations')
 rich_locs = folium.FeatureGroup(name="Richest locations")
 
